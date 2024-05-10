@@ -14,6 +14,14 @@ app = Flask(__name__)
 #hello world
 @app.route('/')
 def hello_world():
+        # registrar un subscriber
+    print('Registrando subscriber')
+    try:
+        register_subscriber('Mongo-suscriber',['electricidad_v1'], 'https://mongo-suscriber.onrender.com/data')
+        print('Subscriber registrado')
+    except Exception as e:
+        print('Error registrando subscriber -> ', e)
+        return 'Error registrando subscriber', 500
     return 'Hello, World! from Mongo-suscriber'
 
 # Ruta para recibir datos de los dispositivos IoT
@@ -27,11 +35,4 @@ def get_data():
 
 
 if __name__ == '__main__':
-    # registrar un subscriber
-    print('Registrando subscriber')
-    try:
-        register_subscriber('Mongo-suscriber',['electricidad_v1'], 'https://mongo-suscriber.onrender.com/data')
-        print('Subscriber registrado')
-    except Exception as e:
-        print('Error registrando subscriber -> ', e)
     app.run(debug=True)
