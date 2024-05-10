@@ -17,7 +17,8 @@ def hello_world():
         # registrar un subscriber
     print('Registrando subscriber')
     try:
-        register_subscriber('Mongo-suscriber',['electricidad_v1'], 'https://mongo-suscriber.onrender.com/data')
+        req = register_subscriber('Mongo-suscriber',['electricidad_v1'], 'https://mongo-suscriber.onrender.com/data')
+        print('Respuesta del servidor -> ', req)
         print('Subscriber registrado')
     except Exception as e:
         print('Error registrando subscriber -> ', e)
