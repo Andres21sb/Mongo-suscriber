@@ -1,0 +1,4 @@
+# Environments
+.env
+mongo_venv/
+library/__pycache__
