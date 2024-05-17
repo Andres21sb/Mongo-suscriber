@@ -12,8 +12,8 @@ from library.iot_library import register_subscriber
 
 app = Flask(__name__)
 #hello world
-@app.route('/')
-def hello_world():
+@app.route('/subscribe')
+def subscribe():
         # registrar un subscriber
     print('Registrando subscriber')
     try:
