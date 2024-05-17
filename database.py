@@ -23,17 +23,7 @@ libray_IoT = db[os.getenv('MONGODB_COLLECTION')]
 
 print('Conexión exitosa a la base de datos')
 
-# Datos a insertar
-data_to_insert = [
-    {"publisher_name": "termostato_v1", "attribute_name": "temperatura", "attribute_value": 29.11, "timestamp": "02:01:58 2024-05-05"},
-    {"publisher_name": "electricidad_v1", "attribute_name": "corriente", "attribute_value": 4.73, "timestamp": "02:01:58 2024-05-05"},
-    {"publisher_name": "termostato_v1", "attribute_name": "temperatura", "attribute_value": 17.37, "timestamp": "02:02:03 2024-05-05"},
-    {"publisher_name": "electricidad_v1", "attribute_name": "corriente", "attribute_value": 9.83, "timestamp": "02:02:03 2024-05-05"}
-]
-
-# Eliminar todos los documentos de la colección
-try:
-    libray_IoT.delete_many({})
-    print('Documentos eliminados')
-except:
-    print('Error al eliminar los documentos')
+# Insertar datos en la base de datos
+def insert_data(data):
+    libray_IoT.insert_one(data)
+    print('Datos insertados en la base de datos')
